@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Paragraph{
+public class Paragraph{
     
     private var __sentences: [Sentence] = []
 

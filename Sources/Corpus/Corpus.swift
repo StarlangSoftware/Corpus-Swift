@@ -9,7 +9,7 @@ import Foundation
 import DataStructure
 import Dictionary
 
-class Corpus{
+open class Corpus{
     
     private var paragraphs: [Paragraph] = []
     private var sentences: [Sentence] = []

@@ -8,7 +8,7 @@
 import Foundation
 import Dictionary
 
-class TurkishSplitter : SentenceSplitter{
+public class TurkishSplitter : SentenceSplitter{
     
     /**
     The listContains method has a String array shortcuts which holds the possible abbreviations that might end with

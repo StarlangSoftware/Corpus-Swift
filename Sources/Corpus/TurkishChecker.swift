@@ -8,7 +8,7 @@
 import Foundation
 import Dictionary
 
-class TurkishChecker: LanguageChecker {
+public class TurkishChecker: LanguageChecker {
     
     /**
     The isValidWord method takes an input String as a word than define all valid characters as a validCharacters

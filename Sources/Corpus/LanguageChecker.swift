@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LanguageChecker{
+public class LanguageChecker{
     
     public func isValidWord(word: String) -> Bool{
         return true

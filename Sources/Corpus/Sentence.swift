@@ -8,7 +8,7 @@
 import Foundation
 import Dictionary
 
-class Sentence : Equatable{
+public class Sentence : Equatable{
     
     private var words: [Word] = []
     

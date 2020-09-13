@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SentenceSplitter{
+public class SentenceSplitter{
     public static let SEPARATORS = "()[]{}\"'\u{05F4}\u{FF02}\u{055B}"
     public static let SENTENCE_ENDERS = ".?!…"
     public static let PUNCTUATION_CHARACTERS = ",:;"

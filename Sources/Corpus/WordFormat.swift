@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WordFormat {
+public enum WordFormat {
     case SURFACE
     case LETTER_2
     case LETTER_3

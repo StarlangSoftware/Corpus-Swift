@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FileDescription{
+public class FileDescription{
     
     private var __path: String
     private var __extension: String
