@@ -14,7 +14,7 @@ open class Corpus{
     private var paragraphs: [Paragraph] = []
     private var sentences: [Sentence] = []
     private var wordList: CounterHashMap<Word> = CounterHashMap<Word>()
-    private var fileName: String = ""
+    public var fileName: String = ""
 
     /**
      * A constructor of {@link Corpus} class which creates new {@link ArrayList} for sentences and a {@link CounterHashMap}
