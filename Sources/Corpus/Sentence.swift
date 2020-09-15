@@ -10,7 +10,7 @@ import Dictionary
 
 open class Sentence : Equatable{
     
-    private var words: [Word] = []
+    public var words: [Word] = []
     
     public init(){
     }
