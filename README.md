@@ -40,3 +40,37 @@ Result: The imported project is listed in the Project Explorer view and files ar
 **From IDE**
 
 After being done with the downloading and opening project, select **Build** option from **Product** menu. After compilation process, user can run Corpus-Swift.
+
+Detailed Description
+============
+
++ [Corpus](#corpus)
++ [TurkishSplitter](#turkishsplitter)
+
+## Corpus
+
+To store a corpus in memory
+
+	a = Corpus(fileName: "derlem.txt")
+
+If this corpus is split with dots but not in sentences
+
+	init(fileName: String, sentenceSplitter: SentenceSplitter)
+
+To eliminate the non-Turkish sentences from the corpus
+
+	init(fileName: String, languageChecker: LanguageChecker)
+
+The number of sentences in the corpus
+
+	func sentenceCount() -> Int
+
+To get ith sentence in the corpus
+
+	func getSentence(index: Int) -> Sentence
+
+## TurkishSplitter
+
+TurkishSplitter class is used to split the text into sentences in accordance with the . rules of Turkish.
+
+	func split(line: String) -> [Sentence]
