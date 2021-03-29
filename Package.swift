@@ -12,7 +12,7 @@ let package = Package(
             targets: ["Corpus"]),
     ],
     dependencies: [
-        .package(name: "Dictionary", url: "https://github.com/StarlangSoftware/Dictionary-Swift.git", .exact("1.0.4")),
+        .package(name: "Dictionary", url: "https://github.com/StarlangSoftware/Dictionary-Swift.git", .exact("1.0.5")),
         .package(name: "DataStructure", url: "https://github.com/StarlangSoftware/DataStructure-Swift.git", .exact("1.0.4")),
     ],
     targets: [
