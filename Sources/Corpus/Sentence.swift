@@ -187,7 +187,7 @@ open class Sentence : Equatable{
 
     - Returns: String result which has all the word in words list.
     */
-    public func description() -> String{
+    open func description() -> String{
         if self.words.count > 0{
             var result : String = self.words[0].description()
             for i in 1..<self.words.count{
