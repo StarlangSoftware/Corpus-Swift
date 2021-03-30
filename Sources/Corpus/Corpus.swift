@@ -13,7 +13,7 @@ open class Corpus{
     
     private var paragraphs: [Paragraph] = []
     public var sentences: [Sentence] = []
-    private var wordList: CounterHashMap<Word> = CounterHashMap<Word>()
+    public var wordList: CounterHashMap<Word> = CounterHashMap<Word>()
     public var fileName: String = ""
 
     /**
