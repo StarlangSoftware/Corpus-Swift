@@ -158,6 +158,18 @@ open class Sentence : Equatable{
     }
 
     /**
+    The insertWord method takes an index and a word as inputs. It inserts the word at given index to words
+    list.
+
+    - Parameters:
+        - i : index.
+        - newWord : to add the words list.
+    */
+    public func insertWord(i: Int, newWord: Word){
+        self.words.insert(newWord, at: i)
+    }
+
+    /**
     The replaceWord method takes an index and a word as inputs. It removes the word at given index from words
     list and then adds the given word to given index of words.
 
