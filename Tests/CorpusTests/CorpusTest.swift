@@ -8,8 +8,8 @@ final class CorpusTest: XCTestCase {
     var corpus: Corpus = Corpus()
 
     override func setUp(){
-        self.corpus = Corpus(fileName: "corpus.txt")
-        self.simpleCorpus = Corpus(fileName: "simplecorpus.txt")
+        self.corpus = Corpus(fileName: "corpus")
+        self.simpleCorpus = Corpus(fileName: "simplecorpus")
     }
 
     func testNumberOfWords(){

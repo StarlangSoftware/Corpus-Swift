@@ -31,11 +31,9 @@ open class Corpus{
     */
     public init(fileName: String){
         self.fileName = fileName
-        let thisSourceFile = URL(fileURLWithPath: #file)
-        let thisDirectory = thisSourceFile.deletingLastPathComponent()
-        let url = thisDirectory.appendingPathComponent(fileName)
+        let url = Bundle.module.url(forResource: fileName, withExtension: "txt")
         do{
-            let fileContent = try String(contentsOf: url, encoding: .utf8)
+            let fileContent = try String(contentsOf: url!, encoding: .utf8)
             let lines = fileContent.split(whereSeparator: \.isNewline)
             for line in lines{
                 self.addSentence(s: Sentence(sentence: String(line)))
@@ -55,11 +53,9 @@ open class Corpus{
      */
     public init(fileName: String, sentenceSplitter: SentenceSplitter){
         self.fileName = fileName
-        let thisSourceFile = URL(fileURLWithPath: #file)
-        let thisDirectory = thisSourceFile.deletingLastPathComponent()
-        let url = thisDirectory.appendingPathComponent(fileName)
+        let url = Bundle.module.url(forResource: fileName, withExtension: "txt")
         do{
-            let fileContent = try String(contentsOf: url, encoding: .utf8)
+            let fileContent = try String(contentsOf: url!, encoding: .utf8)
             let lines = fileContent.split(whereSeparator: \.isNewline)
             for line in lines{
                 let sentences = sentenceSplitter.split(line: String(line))
@@ -83,11 +79,9 @@ open class Corpus{
     */
     public init(fileName: String, languageChecker: LanguageChecker){
         self.fileName = fileName
-        let thisSourceFile = URL(fileURLWithPath: #file)
-        let thisDirectory = thisSourceFile.deletingLastPathComponent()
-        let url = thisDirectory.appendingPathComponent(fileName)
+        let url = Bundle.module.url(forResource: fileName, withExtension: "txt")
         do{
-            let fileContent = try String(contentsOf: url, encoding: .utf8)
+            let fileContent = try String(contentsOf: url!, encoding: .utf8)
             let lines = fileContent.split(whereSeparator: \.isNewline)
             for line in lines{
                 self.addSentence(s: Sentence(sentence: String(line), languageChecker: languageChecker))

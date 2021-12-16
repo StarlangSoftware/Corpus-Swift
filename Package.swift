@@ -1,4 +1,4 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -12,7 +12,7 @@ let package = Package(
             targets: ["Corpus"]),
     ],
     dependencies: [
-        .package(name: "Dictionary", url: "https://github.com/StarlangSoftware/Dictionary-Swift.git", .exact("1.0.7")),
+        .package(name: "Dictionary", url: "https://github.com/StarlangSoftware/Dictionary-Swift.git", .exact("1.0.8")),
         .package(name: "DataStructure", url: "https://github.com/StarlangSoftware/DataStructure-Swift.git", .exact("1.0.4")),
     ],
     targets: [
@@ -20,7 +20,8 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "Corpus",
-            dependencies: ["Dictionary", "DataStructure"]),
+            dependencies: ["Dictionary", "DataStructure"],
+            resources: [.process("corpus.txt"),.process("simplecorpus.txt")]),
         .testTarget(
             name: "CorpusTests",
             dependencies: ["Corpus"]),
