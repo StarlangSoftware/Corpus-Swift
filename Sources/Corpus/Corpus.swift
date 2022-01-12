@@ -8,6 +8,7 @@
 import Foundation
 import DataStructure
 import Dictionary
+import Util
 
 open class Corpus{
     
@@ -267,6 +268,13 @@ open class Corpus{
     - Parameter seed : value to randomize shuffling.
     */
     public func shuffleSentences(seed: Int){
+        let random = Random(seed: seed)
+        for i in stride(from: self.sentenceCount() - 1, to: 0, by: -1){
+            let randomIndex = random.nextInt(maxRange: i + 1)
+            let tmp = self.sentences[i]
+            self.sentences[i] = self.sentences[randomIndex]
+            self.sentences[randomIndex] = tmp
+        }
     }
 
     /**
