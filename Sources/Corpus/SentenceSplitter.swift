@@ -179,7 +179,7 @@ public class SentenceSplitter{
     */
     private func __isApostrophe(line: String, i: Int) -> Bool{
         let apostropheLetters = upperCaseLetters() + lowerCaseLetters() + Language.EXTENDED_LANGUAGE_CHARACTERS + Language.DIGITS
-        if i + 1 < line.count{
+        if i > 0 && i + 1 < line.count{
             let previousChar = Word.charAt(s: line, i: i - 1)
             let nextChar = Word.charAt(s: line, i: i + 1)
             return apostropheLetters.contains(previousChar) && apostropheLetters.contains(nextChar)
@@ -200,7 +200,7 @@ public class SentenceSplitter{
     - Returns: True if previous char and next char is a digit, False otherwise.
     */
     private func __numberExistsBeforeAndAfter(line: String, i: Int) -> Bool{
-        if i + 1 < line.count && i > 0{
+        if i > 0 && i + 1 < line.count{
             let previousChar = Word.charAt(s: line, i: i - 1)
             let nextChar = Word.charAt(s: line, i: i + 1)
             return Language.DIGITS.contains(previousChar) && Language.DIGITS.contains(nextChar)
@@ -221,7 +221,7 @@ public class SentenceSplitter{
     - Returns: True if previous char, next char and two next chars are digit, False otherwise.
     */
     private func __isTime(line: String, i: Int) -> Bool{
-        if i + 2 < line.count{
+        if i > 0 && i + 2 < line.count{
             let previousChar = Word.charAt(s: line, i: i - 1)
             let nextChar = Word.charAt(s: line, i: i + 1)
             let twoNextChar = Word.charAt(s: line, i: i + 2)
