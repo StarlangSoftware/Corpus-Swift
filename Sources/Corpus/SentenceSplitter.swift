@@ -9,9 +9,9 @@ import Foundation
 import Dictionary
 
 public class SentenceSplitter{
-    public static let SEPARATORS = "\n()[]{}\"'\u{05F4}\u{FF02}\u{055B}"
+    public static let SEPARATORS = "\n()[]{}\"'\u{05F4}\u{FF02}\u{055B}’”‘“­​"
     public static let SENTENCE_ENDERS = ".?!…"
-    public static let PUNCTUATION_CHARACTERS = ",:;"
+    public static let PUNCTUATION_CHARACTERS = ",:;‚"
 
     public func shortCuts() -> [String]{
         return []
@@ -310,6 +310,14 @@ public class SentenceSplitter{
                             specialQuotaCount = specialQuotaCount + 1
                         case "\u{05F4}":
                             specialQuotaCount = specialQuotaCount - 1
+                        case "“":
+                            specialQuotaCount = specialQuotaCount + 1
+                        case "”":
+                            specialQuotaCount = specialQuotaCount - 1
+                        case "‘":
+                            specialQuotaCount = specialQuotaCount + 1
+                        case "’":
+                            specialQuotaCount = specialQuotaCount - 1
                         case "(":
                             roundParenthesisCount = roundParenthesisCount + 1
                         case ")":
@@ -333,11 +341,13 @@ public class SentenceSplitter{
                 }
             } else {
                 if SentenceSplitter.SENTENCE_ENDERS.contains(Word.charAt(s: line, i: i)){
-                    if Word.charAt(s: line, i: i) == "." && currentWord == "www"{
+                    if Word.charAt(s: line, i: i) == "." && currentWord.lowercased() == "www"{
                         webMode = true
                     }
                     if Word.charAt(s: line, i: i) == "." && currentWord != "" && (webMode || emailMode || (TurkishLanguage.DIGITS.contains(Word.charAt(s: line, i: i - 1)) && !self.__isNextCharUpperCaseOrDigit(line: line, i: i + 1))){
                         currentWord = currentWord + String(Word.charAt(s: line, i: i))
+                        currentSentence.addWord(word: Word(name: currentWord))
+                        currentWord = ""
                     } else {
                         if Word.charAt(s: line, i: i) == "." && (self.__listContains(currentWord: currentWord) || self.__isNameShortcut(currentWord: currentWord)){
                             currentWord = currentWord + String(Word.charAt(s: line, i: i))
