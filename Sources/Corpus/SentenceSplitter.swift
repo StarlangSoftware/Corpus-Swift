@@ -12,6 +12,7 @@ public class SentenceSplitter{
     public static let SEPARATORS = "\n()[]{}\"'\u{05F4}\u{FF02}\u{055B}’”‘“­​"
     public static let SENTENCE_ENDERS = ".?!…"
     public static let PUNCTUATION_CHARACTERS = ",:;‚"
+    public static let APOSTROPHES = "'’‘\u{055B}"
 
     public func shortCuts() -> [String]{
         return []
@@ -291,7 +292,7 @@ public class SentenceSplitter{
         var sentences : [Sentence] = []
         while i < line.count{
             if SentenceSplitter.SEPARATORS.contains(Word.charAt(s: line, i: i)){
-                if Word.charAt(s: line, i: i) == "'" && currentWord != "" && self.__isApostrophe(line: line, i: i){
+                if SentenceSplitter.APOSTROPHES.contains(Word.charAt(s: line, i: i)) && currentWord != "" && self.__isApostrophe(line: line, i: i){
                     currentWord = currentWord + String(Word.charAt(s: line, i: i))
                 } else {
                     if currentWord != ""{
@@ -354,37 +355,41 @@ public class SentenceSplitter{
                             currentSentence.addWord(word: Word(name: currentWord))
                             currentWord = ""
                         } else {
-                            if currentWord != ""{
-                                currentSentence.addWord(word: Word(name: self.__repeatControl(word: currentWord, exceptionMode: webMode || emailMode)))
-                            }
-                            currentWord = "" + String(Word.charAt(s: line, i: i))
-                            i = i + 1
-                            while i < line.count && SentenceSplitter.SENTENCE_ENDERS.contains(Word.charAt(s: line, i: i)){
+                            if Word.charAt(s: line, i: i) == "." && self.__numberExistsBeforeAndAfter(line: line, i: i){
+                                currentWord = currentWord + String(Word.charAt(s: line, i: i))
+                            } else {
+                                if currentWord != ""{
+                                    currentSentence.addWord(word: Word(name: self.__repeatControl(word: currentWord, exceptionMode: webMode || emailMode)))
+                                }
+                                currentWord = "" + String(Word.charAt(s: line, i: i))
                                 i = i + 1
-                            }
-                            i = i - 1
-                            currentSentence.addWord(word: Word(name: currentWord))
-                            if roundParenthesisCount == 0 && bracketCount == 0 && curlyBracketCount == 0 && quotaCount == 0{
-                                if i + 1 < line.count && Word.charAt(s: line, i: i + 1) == "'" && apostropheCount == 1 && self.__isNextCharUpperCaseOrDigit(line: line, i: i + 2){
-                                    currentSentence.addWord(word: Word(name: "'"))
+                                while i < line.count && SentenceSplitter.SENTENCE_ENDERS.contains(Word.charAt(s: line, i: i)){
                                     i = i + 1
-                                    sentences.append(currentSentence)
-                                    currentSentence = Sentence()
-                                } else {
-                                    if i + 2 < line.count && Word.charAt(s: line, i: i + 1) == " " && Word.charAt(s: line, i: i + 2) == "'" && apostropheCount == 1 && self.__isNextCharUpperCaseOrDigit(line: line, i: i + 3){
+                                }
+                                i = i - 1
+                                currentSentence.addWord(word: Word(name: currentWord))
+                                if roundParenthesisCount == 0 && bracketCount == 0 && curlyBracketCount == 0 && quotaCount == 0{
+                                    if i + 1 < line.count && Word.charAt(s: line, i: i + 1) == "'" && apostropheCount == 1 && self.__isNextCharUpperCaseOrDigit(line: line, i: i + 2){
                                         currentSentence.addWord(word: Word(name: "'"))
-                                        i += 2
+                                        i = i + 1
                                         sentences.append(currentSentence)
                                         currentSentence = Sentence()
                                     } else {
-                                        if self.__isNextCharUpperCaseOrDigit(line: line, i: i + 1){
+                                        if i + 2 < line.count && Word.charAt(s: line, i: i + 1) == " " && Word.charAt(s: line, i: i + 2) == "'" && apostropheCount == 1 && self.__isNextCharUpperCaseOrDigit(line: line, i: i + 3){
+                                            currentSentence.addWord(word: Word(name: "'"))
+                                            i += 2
                                             sentences.append(currentSentence)
                                             currentSentence = Sentence()
+                                        } else {
+                                            if self.__isNextCharUpperCaseOrDigit(line: line, i: i + 1){
+                                                sentences.append(currentSentence)
+                                                currentSentence = Sentence()
+                                            }
                                         }
                                     }
                                 }
+                                currentWord = ""
                             }
-                            currentWord = ""
                         }
                     }
                 } else {

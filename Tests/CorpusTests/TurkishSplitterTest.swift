@@ -50,6 +50,12 @@ final class TurkishSplitterTest: XCTestCase {
         XCTAssertEqual(8, splitter.split(line: "Burada II. Murat ve I. Ahmet oyun oynadı")[0].wordCount())
     }
 
+    func testSplit7(){
+        let splitter : TurkishSplitter = TurkishSplitter()
+        XCTAssertEqual(1, splitter.split(line: "1.87 cm boyunda ve 84 kg ağırlığındaydı").count)
+        XCTAssertEqual(7, splitter.split(line: "1.87 cm boyunda ve 84 kg ağırlığındaydı")[0].wordCount())
+    }
+
     static var allTests = [
         ("testExample1", testSplit1),
         ("testExample2", testSplit2),
@@ -57,5 +63,6 @@ final class TurkishSplitterTest: XCTestCase {
         ("testExample4", testSplit4),
         ("testExample5", testSplit5),
         ("testExample6", testSplit6),
+        ("testExample7", testSplit7),
     ]
 }
