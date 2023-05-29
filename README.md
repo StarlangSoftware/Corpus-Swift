@@ -8,7 +8,7 @@ Video Lectures
 
 For Developers
 ============
-You can also see [Java](https://github.com/starlangsoftware/Corpus), [Python](https://github.com/starlangsoftware/Corpus-Py), [Cython](https://github.com/starlangsoftware/Corpus-Cy), [C#](https://github.com/starlangsoftware/Corpus-CS), [Js](https://github.com/starlangsoftware/Corpus-Js), or [C++](https://github.com/starlangsoftware/Corpus-CPP) repository.
+You can also see [Java](https://github.com/starlangsoftware/Corpus), [C](https://github.com/starlangsoftware/Corpus-C), [Python](https://github.com/starlangsoftware/Corpus-Py), [Cython](https://github.com/starlangsoftware/Corpus-Cy), [C#](https://github.com/starlangsoftware/Corpus-CS), [Js](https://github.com/starlangsoftware/Corpus-Js), or [C++](https://github.com/starlangsoftware/Corpus-CPP) repository.
 
 ## Requirements
 
