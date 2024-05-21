@@ -10,6 +10,8 @@ import Dictionary
 
 public class TurkishSplitter : SentenceSplitter{
     
+    /// Returns shortcut words in Turkish language.
+    /// - Returns: Shortcut words in Turkish language.
     public override func shortCuts() -> [String]{
         return ["alb", "bnb", "bkz", "bşk", "co", "dr", "dç", "der", "em", "gn",
                "hz", "kd", "kur", "kuv", "ltd", "md", "mr", "mö", "muh", "müh",
@@ -27,10 +29,14 @@ public class TurkishSplitter : SentenceSplitter{
                "ef"]
     }
     
+    /// Returns Turkish lowercase letters.
+    /// - Returns: Turkish lowercase letters.
     public override func lowerCaseLetters() -> String{
         return TurkishLanguage.LOWERCASE_LETTERS
     }
     
+    /// Returns Turkish UPPERCASE letters.
+    /// - Returns: Turkish UPPERCASE letters.
     public override func upperCaseLetters() -> String{
         return TurkishLanguage.UPPERCASE_LETTERS
     }

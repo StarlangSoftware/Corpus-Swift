@@ -12,9 +12,13 @@ open class Sentence : Equatable{
     
     public var words: [Word] = []
     
+    /// An empty constructor of Sentence class. Creates an array of words.
     public init(){
     }
     
+    /// Another constructor of Sentence class which takes a file as an input. It reads each word in the file
+    /// and adds to words array..
+    /// - Parameter url: input file to read words from.
     public init(url: URL){
         do{
             let fileContent = try String(contentsOf: url, encoding: .utf8)
