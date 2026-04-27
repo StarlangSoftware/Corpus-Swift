@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "DataStructure",
+        "repositoryURL": "https://github.com/StarlangSoftware/DataStructure-Swift.git",
+        "state": {
+          "branch": null,
+          "revision": "465056a0e5b67e427fad4b6a081f97e976369f66",
+          "version": "1.0.4"
+        }
+      },
+      {
+        "package": "Dictionary",
+        "repositoryURL": "https://github.com/StarlangSoftware/Dictionary-Swift.git",
+        "state": {
+          "branch": null,
+          "revision": "bc3025d44d0d83ca0fd08907fb08886ec3bffbbd",
+          "version": "1.0.15"
+        }
+      },
+      {
+        "package": "Math",
+        "repositoryURL": "https://github.com/StarlangSoftware/Math-Swift.git",
+        "state": {
+          "branch": null,
+          "revision": "bea010ee9e1a44359ecc434ee04dde61d5fcf01b",
+          "version": "1.0.12"
+        }
+      },
+      {
+        "package": "Util",
+        "repositoryURL": "https://github.com/StarlangSoftware/Util-Swift.git",
+        "state": {
+          "branch": null,
+          "revision": "8cf0ad6e7218b6b96118743ede499a8229bc268e",
+          "version": "1.0.9"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
